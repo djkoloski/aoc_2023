@@ -1,0 +1,15 @@
+[workspace]
+resolver = "2"
+members = [
+    "day_1",
+]
+
+[workspace.package]
+version = "0.1.0"
+authors = ["David Koloski <djkoloski@gmail.com>"]
+edition = "2021"
+publish = false
+
+[workspace.dependencies]
+anyhow = "1"
+regex = "1"
