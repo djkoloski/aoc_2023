@@ -1,6 +1,5 @@
 use std::{
     env::args,
-    error::Error,
     fmt::Display,
     fs::File,
     io::{BufRead, BufReader},
@@ -8,7 +7,7 @@ use std::{
     time::Instant,
 };
 
-pub use anyhow::Result;
+pub use anyhow::{bail, Context, Error, Result};
 
 pub trait Input: Sized {
     fn parse_reader<R: BufRead>(reader: R) -> Result<Self>;
@@ -20,7 +19,7 @@ pub struct Lines<T> {
 
 impl<T: FromStr> Input for Lines<T>
 where
-    T::Err: Error + Send + Sync + 'static,
+    Error: From<T::Err>,
 {
     fn parse_reader<R: BufRead>(reader: R) -> Result<Self> {
         let mut lines = Vec::new();

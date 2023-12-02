@@ -1,10 +1,10 @@
-use common::{solve, Lines, Result};
+use common::{solve, Lines};
 
 const NAMES: &[&str] = &[
     "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
 ];
 
-fn main() -> Result<()> {
+fn main() -> common::Result<()> {
     solve(
         |input: &Lines<String>| {
             input

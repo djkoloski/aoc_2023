@@ -1,5 +1,5 @@
-use common::{solve, Lines, Result};
+use common::{solve, Lines};
 
-fn main() -> Result<()> {
+fn main() -> common::Result<()> {
     solve(|_input: &Lines<String>| 0, |_input| 0)
 }
