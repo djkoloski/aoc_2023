@@ -1,9 +1,9 @@
 [package]
-name = "day_1"
+name = "common"
 version.workspace = true
 authors.workspace = true
 edition.workspace = true
 publish.workspace = true
 
 [dependencies]
-common.workspace = true
+anyhow.workspace = true
