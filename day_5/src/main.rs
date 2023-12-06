@@ -1,4 +1,4 @@
-use std::{collections::HashMap, str::FromStr};
+use std::{collections::HashMap, io::prelude::BufRead, str::FromStr};
 
 use common::{solve, Context, Input};
 
@@ -120,9 +120,7 @@ struct Almanac {
 }
 
 impl Input for Almanac {
-    fn parse_reader<R: std::io::prelude::BufRead>(
-        reader: R,
-    ) -> common::Result<Self> {
+    fn parse_reader<R: BufRead>(reader: R) -> common::Result<Self> {
         let mut lines = reader.lines();
 
         let seeds_line = lines.next().context("expected seeds")??;
