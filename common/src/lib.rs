@@ -32,6 +32,7 @@ where
     }
 }
 
+#[derive(Clone)]
 pub struct Grid<T> {
     width: usize,
     height: usize,
