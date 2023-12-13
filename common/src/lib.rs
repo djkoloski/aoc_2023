@@ -40,6 +40,20 @@ pub struct Grid<T> {
 }
 
 impl<T> Grid<T> {
+    pub fn from_elements(
+        width: usize,
+        height: usize,
+        elements: Vec<T>,
+    ) -> Self {
+        assert_eq!(width * height, elements.len());
+
+        Self {
+            width,
+            height,
+            elements,
+        }
+    }
+
     pub fn default(width: usize, height: usize) -> Self
     where
         T: Default,
