@@ -32,7 +32,7 @@ where
     }
 }
 
-#[derive(Clone)]
+#[derive(Clone, Hash, PartialEq, Eq)]
 pub struct Grid<T> {
     width: usize,
     height: usize,
