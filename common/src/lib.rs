@@ -32,6 +32,27 @@ where
     }
 }
 
+pub struct List<T> {
+    pub elements: Vec<T>,
+}
+
+impl<T: FromStr> Input for List<T>
+where
+    Error: From<T::Err>,
+{
+    fn parse_reader<R: BufRead>(mut reader: R) -> Result<Self> {
+        let mut contents = String::new();
+        reader.read_to_string(&mut contents)?;
+        Ok(Self {
+            elements: contents
+                .trim_end_matches(['\n', '\r'])
+                .split(',')
+                .map(str::parse)
+                .collect::<Result<Vec<_>, _>>()?,
+        })
+    }
+}
+
 #[derive(Clone, Hash, PartialEq, Eq)]
 pub struct Grid<T> {
     width: usize,
