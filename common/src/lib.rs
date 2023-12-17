@@ -102,6 +102,14 @@ impl<T> Grid<T> {
         }
     }
 
+    pub fn get_mut(&mut self, x: usize, y: usize) -> Option<&mut T> {
+        if x < self.width && y < self.height {
+            Some(&mut self.elements[x + y * self.width])
+        } else {
+            None
+        }
+    }
+
     pub fn set(&mut self, x: usize, y: usize, value: T) {
         assert!(x < self.width && y < self.height);
         self.elements[x + y * self.width] = value;
