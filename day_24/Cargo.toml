@@ -1,0 +1,10 @@
+[package]
+name = "day_24"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+common.workspace = true
+nalgebra = "0.32"
